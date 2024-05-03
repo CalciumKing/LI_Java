@@ -9,9 +9,8 @@ import java.io.*;
 import java.util.*;
 
 public class ReadFromFile {
-    public static final String FILENAME = "lotr_races.txt";
+    private static final String FILENAME = "lotr_races.txt";
     public static void main(String[] args) throws IOException {
-        ArrayList<String> lines = new ArrayList<>();
         File myFile = new File(FILENAME);
         if(!myFile.exists()) {
             System.out.println("File Not Found");
@@ -20,6 +19,7 @@ public class ReadFromFile {
 
         Scanner inputFile = new Scanner(myFile);
         String delimeter = ":";
+        ArrayList<String> lines = new ArrayList<>();
         while(inputFile.hasNextLine()) {
             String currentLine = inputFile.nextLine();
             if(currentLine.contains(delimeter)) {
