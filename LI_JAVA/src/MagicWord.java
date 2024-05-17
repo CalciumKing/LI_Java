@@ -1,15 +1,18 @@
-// Name: Landen Ingerslev
-// Assignment: Magic Word
-/*Description: Code adds all the names with their passwords into an arraylist
+/*
+Name: Landen Ingerslev
+Assignment: Magic Word
+Description: Code adds all the names with their passwords into an arraylist
  it then gets a random line and splits it into a username and password
  the user is then queried to enter a password to the username and are
  stuck in a while loop until they guess correctly, if they do get it correct
- the program prints "correct" and ends*/
+ the program prints "correct" and ends
+ */
 
 import java.io.*;
 import java.util.*;
 public class MagicWord {
     private static final String FILENAME = "lotr_names_passwords.txt";
+    private static final String delimiter = ":";
     public static void main(String[] args) throws FileNotFoundException {
         File myFile = new File(FILENAME);
         if(!myFile.exists()) {
@@ -24,9 +27,8 @@ public class MagicWord {
         inputFile.close();
 
 
-        int random = (int)(Math.random() * lines.size());
-        String delimeter = ":";
-        String[] splitWord = lines.get(random).split(delimeter);
+        int random = (int)(Math.random() * lines.size() + 1);
+        String[] splitWord = lines.get(random).split(delimiter);
         String username = splitWord[0];
         String password = splitWord[1];
 
